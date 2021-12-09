@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "588303383156",
+    "project_id": "pfaa-4820b",
+    "storage_bucket": "pfaa-4820b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588303383156:android:37e178e398d726478a2f21",
+        "android_client_info": {
+          "package_name": "com.example.pfa"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588303383156-ciparbtb5dr3nc0b8ginngcejah2n2a3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBluNi7Cp20jGmkp7Y5-M5Dv7U5TCpPbcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588303383156-ciparbtb5dr3nc0b8ginngcejah2n2a3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588303383156:android:7e840e81c3297b148a2f21",
+        "android_client_info": {
+          "package_name": "com.example.winou_transporit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588303383156-ciparbtb5dr3nc0b8ginngcejah2n2a3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBluNi7Cp20jGmkp7Y5-M5Dv7U5TCpPbcY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588303383156-ciparbtb5dr3nc0b8ginngcejah2n2a3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
