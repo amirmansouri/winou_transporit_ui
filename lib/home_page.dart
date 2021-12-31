@@ -1,8 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:liquid_swipe/liquid_swipe.dart';
+import 'package:location/location.dart';
 import 'package:winou_transporit/deuxiem.dart';
 import 'package:winou_transporit/widget/liquid_swipe.dart';
+
+import 'LocationApp.dart';
 
 class  HomePage extends StatelessWidget {
   final emailController = TextEditingController();
@@ -13,6 +16,10 @@ class  HomePage extends StatelessWidget {
     User? user = FirebaseAuth.instance.currentUser;
     //     icon: Icon(Icons.send)),
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.blue,
+        title: Center(child: Text("WinouTranporit")),
+      ),
         backgroundColor: Colors.white,
         body: SingleChildScrollView(
 
@@ -27,7 +34,8 @@ class  HomePage extends StatelessWidget {
                   height: 400,
                   decoration: BoxDecoration(
                       image: DecorationImage(
-                          image: AssetImage('assets/images/background.png'),
+                        // image: AssetImage('assets/images/background.png'),
+                       image: AssetImage('assets/images/back.png'),
                           fit: BoxFit.fill)),
                   child: Stack(
                     children: <Widget>[
@@ -65,21 +73,24 @@ class  HomePage extends StatelessWidget {
                                       AssetImage('assets/images/clock.png'))),
                         ),
                       ),
-                      Positioned(
-                        child: Container(
-                          margin: EdgeInsets.only(top: 50),
-                          child: Center(
-                            child: Text(
-                              "WinouTransporit"
-                                 ,
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 40,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                          ),
-                        ),
-                      )
+
+                      // Positioned(
+                      //   child: Container(
+                      //     margin: EdgeInsets.only(top: 50),
+                      //
+                      //     child: Center(
+                      //
+                      //       child: Text(
+                      //         "WinouTransporit"
+                      //            ,
+                      //         style: TextStyle(
+                      //             color: Colors.blue,
+                      //             fontSize: 40,
+                      //             fontWeight: FontWeight.bold),
+                      //       ),
+                      //     ),
+                      //   ),
+                      // )
                     ],
                   ),
                 ),
@@ -112,6 +123,7 @@ class  HomePage extends StatelessWidget {
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: "Email or Phone number",
+                                    prefix: Icon(Icons.email),
                                     hintStyle:
                                         TextStyle(color: Colors.grey[400])),
                               ),
@@ -123,6 +135,7 @@ class  HomePage extends StatelessWidget {
                                 decoration: InputDecoration(
                                     border: InputBorder.none,
                                     hintText: "Password",
+                                    prefix: Icon(Icons.password),
                                     hintStyle:
                                         TextStyle(color: Colors.grey[400])),
                               ),
@@ -133,24 +146,42 @@ class  HomePage extends StatelessWidget {
                       SizedBox(
                         height: 30,
                       ),
-                      //     onPressed: () async {
-                      //       print("button clicked ");
-                      //       await FirebaseAuth.instance
-                      //           .signInWithEmailAndPassword(
-                      //               email: emailController.text,
-                      //               password: passwordController.text);
-                      //       if (user != null) {
-                      //         Navigator.push(
-                      //             context,
-                      //             MaterialPageRoute(
-                      //                 builder: (context) => App()));
-                      //       } else {
-                      //         Navigator.push(
-                      //             context,
-                      //             MaterialPageRoute(
-                      //                 builder: (context) => App()));
-                      //       }
-                      //     },
+                          IconButton(onPressed: ()async{
+    print("button clicked ");
+    await FirebaseAuth.instance
+        .signInWithEmailAndPassword(
+    email: emailController.text,
+    password: passwordController.text);
+    if (user != null) {
+    Navigator.push(
+    context,
+    MaterialPageRoute(
+    builder: (context) => App()));
+    } else {
+    Navigator.push(
+    context,
+    MaterialPageRoute(
+    builder: (context) => LocationApp()));
+                          } },icon: Icon(Icons.send)),
+                          //
+                          // onPressed: () async {
+                          //   print("button clicked ");
+                          //   await FirebaseAuth.instance
+                          //       .signInWithEmailAndPassword(
+                          //           email: emailController.text,
+                          //           password: passwordController.text);
+                          //   if (user != null) {
+                          //     Navigator.push(
+                          //         context,
+                          //         MaterialPageRoute(
+                          //             builder: (context) => App()));
+                          //   } else {
+                          //     Navigator.push(
+                          //         context,
+                          //         MaterialPageRoute(
+                          //             builder: (context) => App()));
+                          //   }
+                          // },
                       SizedBox(
                         height: 70,
                       ),

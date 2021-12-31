@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:winou_transporit/deuxiem.dart';
 import 'package:winou_transporit/location_firebase.dart';
+import 'package:winou_transporit/splash/splash.dart';
 import 'package:winou_transporit/widget/HomePage.dart';
 
 import 'LocationApp.dart';
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return MaterialApp(
-      home: Liquid(),
+      home: SplashScreen(),
     );
   }
 }
