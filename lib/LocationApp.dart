@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:geolocator/geolocator.dart';
 
-
+void main() => runApp(LocationApp());
 class LocationApp extends StatefulWidget {
 
 

@@ -1,30 +1,16 @@
 import 'dart:async';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-
 import 'package:location/location.dart' as loc;
 import 'package:permission_handler/permission_handler.dart';
-import 'package:winou_transporit/test_maps.dart';
-
-// void main() async {
-//   WidgetsFlutterBinding.ensureInitialized();
-//   await Firebase.initializeApp();
-//   runApp(MaterialApp(home: MyApp()));
-// }
 class Location extends StatefulWidget {
   const Location({Key? key}) : super(key: key);
-
   @override
   _LocationState createState() => _LocationState();
 }
-
-
 class _LocationState extends State<Location> {
   final loc.Location location = loc.Location();
   StreamSubscription<loc.LocationData>? _locationSubscription;
-
   @override
   void initState() {
     super.initState();
@@ -32,72 +18,35 @@ class _LocationState extends State<Location> {
     location.changeSettings(interval: 300, accuracy: loc.LocationAccuracy.high);
     location.enableBackgroundMode(enable: true);
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('live location tracker'),
       ),
-      body: Column(
-        children: [
-          TextButton(
-              onPressed: () {
-                _getLocation();
-              },
-              child: Text('add my location')),
-          TextButton(
-              onPressed: () {
-                _listenLocation();
-              },
-              child: Text('enable live location')),
-          TextButton(
-              onPressed: () {
-                _stopListening();
-              },
-              child: Text('stop live location')),
-          Expanded(
-              child: StreamBuilder(
-                stream:
-                FirebaseFirestore.instance.collection('location').snapshots(),
-                builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
-                  if (!snapshot.hasData) {
-                    return Center(child: CircularProgressIndicator());
-                  }
-                  return ListView.builder(
-                      itemCount: snapshot.data?.docs.length,
-                      itemBuilder: (context, index) {
-                        return ListTile(
-                          title:
-                          Text(snapshot.data!.docs[index]['name'].toString()),
-                          subtitle: Row(
-                            children: [
-                              Text(snapshot.data!.docs[index]['latitude']
-                                  .toString()),
-                              SizedBox(
-                                width: 20,
-                              ),
-                              Text(snapshot.data!.docs[index]['longitude']
-                                  .toString()),
-                            ],
-                          ),
-                          trailing: IconButton(
-                            icon: Icon(Icons.directions),
-                            onPressed: () {
-                              Navigator.of(context).push(MaterialPageRoute(
-                                  builder: (context) =>
-                                      MyMap(snapshot.data!.docs[index].id)));
-                            },
-                          ),
-                        );
-                      });
+      body: Center(
+        child: Column(
+          children: [
+            TextButton(
+                onPressed: () {
+                  _getLocation();
                 },
-              )),
-        ],
+                child: Text('add my location')),
+            TextButton(
+                onPressed: () {
+                  _listenLocation();
+                },
+                child: Text('enable live location')),
+            TextButton(
+                onPressed: () {
+                  _stopListening();
+                },
+                child: Text('stop live location')),
+          ],
+        ),
       ),
     );
   }
-
   _getLocation() async {
     try {
       final loc.LocationData _locationResult = await location.getLocation();
