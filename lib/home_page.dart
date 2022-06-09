@@ -74,23 +74,23 @@ class  HomePage extends StatelessWidget {
                         ),
                       ),
 
-                      // Positioned(
-                      //   child: Container(
-                      //     margin: EdgeInsets.only(top: 50),
-                      //
-                      //     child: Center(
-                      //
-                      //       child: Text(
-                      //         "WinouTransporit"
-                      //            ,
-                      //         style: TextStyle(
-                      //             color: Colors.blue,
-                      //             fontSize: 40,
-                      //             fontWeight: FontWeight.bold),
-                      //       ),
-                      //     ),
-                      //   ),
-                      // )
+                      Positioned(
+                        child: Container(
+                          margin: EdgeInsets.only(top: 50),
+
+                          child: Center(
+
+                            child: Text(
+                              "WinouTransporit"
+                                 ,
+                              style: TextStyle(
+                                  color: Colors.blue,
+                                  fontSize: 40,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          ),
+                        ),
+                      )
                     ],
                   ),
                 ),
